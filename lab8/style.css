@@ -1,0 +1,212 @@
+/* --- Базові налаштування --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* Спортивний шрифт */
+    overflow-x: hidden;
+    background-color: #1a1a1a; /* Темний фон підкладки */
+}
+
+/* --- ПАРАЛАКС ЕФЕКТ --- */
+.parallax-section {
+    min-height: 600px; /* Великі красиві блоки з фоном */
+    background-attachment: fixed; /* Фон рухається повільніше (стоїть на місці) */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Затемнення фону, щоб текст читався */
+.parallax-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1; /* Ставимо затемнення за текст, але перед картинкою */
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #00AEEF; /* Фірмовий блакитний колір SkyFitness (приблизний) */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+/* --- БІЛИЙ БЛОК З КОНТЕНТОМ --- */
+.content-section {
+    position: relative;
+    background-color: #fff;
+    padding: 80px 20px;
+    color: #333;
+    z-index: 10; /* Поверх паралаксу */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* --- ТРИКУТНИКИ (Pure CSS) --- */
+
+/* Трикутник зверху (білий врізається вгору) */
+.triangle-top::before {
+    content: '';
+    position: absolute;
+    top: -50px; /* Висота трикутника */
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    /* Ліворуч і праворуч по 50vw, знизу 50px білого кольору */
+    border-width: 0 50vw 50px 50vw;
+    border-color: transparent transparent #fff transparent;
+    z-index: 10;
+}
+
+/* Окремий трикутник знизу (білий стікає вниз) */
+.separator-triangle-down {
+    position: relative;
+    width: 100%;
+    height: 0;
+    z-index: 20; /* Поверх нижнього паралаксу */
+}
+
+.separator-triangle-down::after {
+    content: '';
+    position: absolute;
+    top: 0; /* Починається одразу після білого блоку */
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    /* Зверху 50px білого, боки прозорі */
+    border-width: 50px 50vw 0 50vw;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* --- СІТКА КОМАНДИ (Grid Layout) --- */
+.team-grid {
+    display: grid;
+    /* Адаптивна сітка: мінімум 250px на картку, автозаповнення */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+}
+
+.trainer-card {
+    background: #f9f9f9;
+    padding-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.trainer-card:hover {
+    transform: translateY(-10px); /* Ефект підняття при наведенні */
+}
+
+.photo-frame {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Щоб фото не розтягувалися */
+    transition: transform 0.5s ease;
+}
+
+.trainer-card:hover .photo-frame img {
+    transform: scale(1.05); /* Зум фото при наведенні */
+}
+
+.trainer-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.trainer-card .role {
+    color: #00AEEF; /* Акцентний колір */
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* --- Кнопка і Футер --- */
+.content-box {
+    text-align: center;
+    color: white;
+    z-index: 5;
+}
+
+.cta-button {
+    background-color: #00AEEF;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #008cc2;
+}
+
+footer {
+    background: #111;
+    color: #555;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Адаптив для мобільних */
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll; /* Вимикаємо паралакс на телефонах для плавності */
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
