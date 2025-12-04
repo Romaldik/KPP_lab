@@ -1,4 +1,3 @@
-/* Базові налаштування */
 body {
     margin: 0;
     padding: 0;
@@ -8,22 +7,19 @@ body {
     overflow: hidden;
 }
 
-/* Контейнер-сцена */
 .star-wars {
     display: flex;
     justify-content: center;
     position: relative;
     height: 100vh;
-    color: #feda4a; /* Основний жовтий колір для всього */
-    /* Масивний шрифт */
+    color: #feda4a; 
     font-family: 'Impact', 'Arial Black', sans-serif;
-    /* Розмір шрифту */
     font-size: 300%; 
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 1.2;
     perspective: 400px;
-    text-transform: uppercase; /* Все великими літерами */
+    text-transform: uppercase; 
 }
 
 .crawl {
@@ -34,35 +30,29 @@ body {
     animation: crawl 30s linear infinite;
 }
 
-/* Контейнер заголовків */
 .crawl > .title {
     margin-bottom: 50px;
 }
 
-/* "Episode I" - вирівнювання по лівому краю */
 .crawl > .title p {
     margin: 0 0 10px 0;
     font-size: 1em;
     text-align: left;
 }
 
-/* Головний заголовок - СУЦІЛЬНИЙ ЖОВТИЙ, по центру */
 .crawl > .title h1 {
     margin: 0;
     font-size: 1em;
-    color: #feda4a; /* Жовтий колір */
-    text-align: center; /* Вирівнювання по центру */
-    /* Контури прибрано */
+    color: #feda4a;
+    text-align: center; 
 }
 
-/* Основний текст - вирівнювання по ширині */
 .crawl p {
     margin-bottom: 2em;
     font-size: 1em;
     text-align: justify;
 }
 
-/* Затемнення зверху */
 .fade {
     position: absolute;
     width: 100%;
@@ -72,7 +62,6 @@ body {
     z-index: 10;
 }
 
-/* Анімація */
 @keyframes crawl {
     0% {
         top: 100vh; 
@@ -86,7 +75,6 @@ body {
     }
 }
 
-/* Адаптив */
 @media (max-width: 768px) {
     .star-wars {
         font-size: 200%;

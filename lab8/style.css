@@ -1,16 +1,14 @@
-/* --- Базові налаштування --- */
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif; /* Спортивний шрифт */
+    font-family: 'Montserrat', sans-serif; 
     overflow-x: hidden;
-    background-color: #1a1a1a; /* Темний фон підкладки */
+    background-color: #1a1a1a; 
 }
 
-/* --- ПАРАЛАКС ЕФЕКТ --- */
 .parallax-section {
-    min-height: 600px; /* Великі красиві блоки з фоном */
-    background-attachment: fixed; /* Фон рухається повільніше (стоїть на місці) */
+    min-height: 600px; 
+    background-attachment: fixed; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,13 +20,12 @@ body, html {
     z-index: 1;
 }
 
-/* Затемнення фону, щоб текст читався */
 .parallax-section::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: -1; /* Ставимо затемнення за текст, але перед картинкою */
+    z-index: -1; 
 }
 
 .hero-content {
@@ -42,7 +39,7 @@ body, html {
     margin: 0;
     font-weight: 900;
     letter-spacing: 2px;
-    color: #00AEEF; /* Фірмовий блакитний колір SkyFitness (приблизний) */
+    color: #00AEEF; 
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
@@ -52,13 +49,12 @@ body, html {
     font-weight: 400;
 }
 
-/* --- БІЛИЙ БЛОК З КОНТЕНТОМ --- */
 .content-section {
     position: relative;
     background-color: #fff;
     padding: 80px 20px;
     color: #333;
-    z-index: 10; /* Поверх паралаксу */
+    z-index: 10; 
 }
 
 .container {
@@ -81,48 +77,40 @@ body, html {
     font-size: 1.1rem;
 }
 
-/* --- ТРИКУТНИКИ (Pure CSS) --- */
-
-/* Трикутник зверху (білий врізається вгору) */
 .triangle-top::before {
     content: '';
     position: absolute;
-    top: -50px; /* Висота трикутника */
+    top: -50px;
     left: 0;
     width: 0;
     height: 0;
     border-style: solid;
-    /* Ліворуч і праворуч по 50vw, знизу 50px білого кольору */
     border-width: 0 50vw 50px 50vw;
     border-color: transparent transparent #fff transparent;
     z-index: 10;
 }
 
-/* Окремий трикутник знизу (білий стікає вниз) */
 .separator-triangle-down {
     position: relative;
     width: 100%;
     height: 0;
-    z-index: 20; /* Поверх нижнього паралаксу */
+    z-index: 20; 
 }
 
 .separator-triangle-down::after {
     content: '';
     position: absolute;
-    top: 0; /* Починається одразу після білого блоку */
+    top: 0; 
     left: 0;
     width: 0;
     height: 0;
     border-style: solid;
-    /* Зверху 50px білого, боки прозорі */
     border-width: 50px 50vw 0 50vw;
     border-color: #fff transparent transparent transparent;
 }
 
-/* --- СІТКА КОМАНДИ (Grid Layout) --- */
 .team-grid {
     display: grid;
-    /* Адаптивна сітка: мінімум 250px на картку, автозаповнення */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 30px;
 }
@@ -136,7 +124,7 @@ body, html {
 }
 
 .trainer-card:hover {
-    transform: translateY(-10px); /* Ефект підняття при наведенні */
+    transform: translateY(-10px); 
 }
 
 .photo-frame {
@@ -149,12 +137,12 @@ body, html {
 .photo-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Щоб фото не розтягувалися */
+    object-fit: cover; 
     transition: transform 0.5s ease;
 }
 
 .trainer-card:hover .photo-frame img {
-    transform: scale(1.05); /* Зум фото при наведенні */
+    transform: scale(1.05); 
 }
 
 .trainer-card h3 {
@@ -164,13 +152,12 @@ body, html {
 }
 
 .trainer-card .role {
-    color: #00AEEF; /* Акцентний колір */
+    color: #00AEEF; 
     font-weight: 700;
     font-size: 0.9rem;
     text-transform: uppercase;
 }
 
-/* --- Кнопка і Футер --- */
 .content-box {
     text-align: center;
     color: white;
@@ -201,10 +188,9 @@ footer {
     padding: 20px;
 }
 
-/* Адаптив для мобільних */
 @media (max-width: 768px) {
     .parallax-section {
-        background-attachment: scroll; /* Вимикаємо паралакс на телефонах для плавності */
+        background-attachment: scroll; 
     }
     .hero-content h1 {
         font-size: 2.5rem;
