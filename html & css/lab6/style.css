@@ -47,11 +47,11 @@ img {
 }
 
 .bg-tokyo {
-    background-image: url('neonTokyo.jpg');
+    background-image: url('img/neonTokyo.jpg');
     height: 100vh;
 }
 .bg-night {
-    background-image: url('nightTokyo.jpg');
+    background-image: url('img/nightTokyo.jpg');
     padding: 80px 0;
 }
 
