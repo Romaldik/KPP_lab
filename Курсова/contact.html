@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentDrive - Контакти</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- НАВІГАТОР -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">🚘 StudentDrive</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="catalog.html">Catalog</a>
+                <a href="contact.html" style="color: #007bff; font-weight: bold;">Contact</a>
+            </nav>
+            <div class="auth-actions">
+                <span id="userGreeting" class="user-greeting"></span>
+                <button id="navLoginBtn" class="btn btn-outline" onclick="openModal('loginModal')">Увійти</button>
+                <button id="navRegisterBtn" class="btn btn-primary" onclick="openModal('registerModal')">Реєстрація</button>
+                <button id="navLogoutBtn" class="btn btn-outline" style="display:none;" onclick="logoutUser()">Вийти</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- МОДАЛЬНІ ВІКНА (Ідентичні) -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal">
+            <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Авторизація</h2>
+            <div id="loginAlert" class="alert"></div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group"><label>Email</label><input type="email" id="loginEmail" class="form-control" required></div>
+                <div class="form-group"><label>Пароль</label><input type="password" id="loginPassword" class="form-control" required></div>
+                <button type="submit" class="btn btn-primary btn-block">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- СЕКЦІЯ: КОНТАКТИ -->
+    <main class="container" style="padding-top: 40px; padding-bottom: 60px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="font-size: 32px;">Contact Us</h2>
+            <p style="color: #666;">Have questions about your first car? Our team specializes in helping students.</p>
+        </div>
+        
+        <div class="contact-section">
+            <div class="contact-form-area">
+                <h3 style="margin-bottom: 20px;">Get in Touch</h3>
+                <div id="contactAlert" class="alert alert-success"></div>
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;"><label>First Name</label><input type="text" id="contactFirstName" class="form-control" required></div>
+                        <div class="form-group" style="flex: 1;"><label>Last Name</label><input type="text" id="contactLastName" class="form-control" required></div>
+                    </div>
+                    <div class="form-group"><label>Email Address</label><input type="email" id="contactEmail" class="form-control" required></div>
+                    <div class="form-group"><label>Message</label><textarea id="contactMessage" class="form-control" rows="4" required></textarea></div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-area">
+                <div class="info-card"><h4>📞 Call Us</h4><p>+1 (555) 012-3456</p></div>
+                <div class="info-card"><h4>📍 Location</h4><p>123 University Drive, Tech City, TC 94103</p></div>
+                <div class="info-card">
+                    <h4>🕒 Showroom Hours</h4>
+                    <p style="display: flex; justify-content: space-between;"><span>Mon - Fri</span> <span>9:00 AM - 7:00 PM</span></p>
+                    <p style="display: flex; justify-content: space-between;"><span>Saturday</span> <span>10:00 AM - 5:00 PM</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>© 2024 StudentDrive Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
