@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentDrive - Каталог</title>
+    <title>TokyoDrive - Гараж</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- НАВІГАТОР -->
     <header>
         <div class="container navbar">
-            <a href="index.html" class="logo">🚘 StudentDrive</a>
+            <a href="index.html" class="logo">東京 <span>TokyoDrive</span></a>
             <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="catalog.html" style="color: #007bff; font-weight: bold;">Catalog</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html">Головна</a>
+                <a href="catalog.html" style="color: #BC002D; font-weight: bold;">Каталог JDM</a>
+                <a href="contact.html">Контакти</a>
             </nav>
             <div class="auth-actions">
                 <span id="userGreeting" class="user-greeting"></span>
@@ -26,7 +25,6 @@
         </div>
     </header>
 
-    <!-- МОДАЛЬНІ ВІКНА -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal">
             <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
@@ -43,7 +41,7 @@
     <div id="registerModal" class="modal-overlay">
         <div class="modal">
             <span class="close-modal" onclick="closeModal('registerModal')">&times;</span>
-            <h2>Реєстрація</h2>
+            <h2>Новий Клієнт</h2>
             <div id="registerAlert" class="alert"></div>
             <form id="registerForm" onsubmit="handleRegister(event)">
                 <div class="form-group"><label>Ім'я</label><input type="text" id="regName" class="form-control" required></div>
@@ -54,52 +52,41 @@
         </div>
     </div>
 
-    <!-- КАТАЛОГ -->
     <main class="container catalog-container">
-        <!-- Фільтри -->
         <aside class="sidebar">
-            <h3 style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Фільтри</h3>
+            <h3 style="margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; color: #BC002D; text-transform: uppercase;">Фільтри</h3>
             <div class="filter-group">
-                <h4>Тип кузова</h4>
+                <h4>Кузов</h4>
+                <label><input type="checkbox" class="filter-cb" value="coupe"> Купе</label>
                 <label><input type="checkbox" class="filter-cb" value="sedan"> Седан</label>
                 <label><input type="checkbox" class="filter-cb" value="hatchback"> Хетчбек</label>
-                <label><input type="checkbox" class="filter-cb" value="suv"> SUV</label>
             </div>
             <div class="filter-group">
-                <h4>Бюджет</h4>
-                <label><input type="checkbox" class="filter-cb" value="under15k"> До $15,000</label>
-                <label><input type="checkbox" class="filter-cb" value="over15k"> Більше $15,000</label>
+                <h4>Епоха</h4>
+                <label><input type="checkbox" class="filter-cb" value="90s"> Класика 90-х</label>
+                <label><input type="checkbox" class="filter-cb" value="modern"> Сучасні (2000+)</label>
             </div>
             <button class="btn btn-primary btn-block" onclick="applyFilters()">Застосувати</button>
             <button class="btn btn-outline btn-block" onclick="resetFilters()" style="margin-top: 10px;">Скинути</button>
         </aside>
 
-        <!-- Картки -->
         <div class="catalog-content">
             <div class="catalog-header">
-                <h2>Автомобілі в наявності</h2>
-                <span id="resultsCount" style="color: #666; font-size: 14px;">Завантаження...</span>
+                <h2>Наш Гараж</h2>
+                <span id="resultsCount" style="color: #BC002D; font-size: 14px; font-weight: bold;">Завантаження...</span>
             </div>
-            
-            <!-- Місце для виводу помилок скрипта -->
-            <div id="scriptErrorMsg" style="color: red; font-weight: bold; margin-bottom: 15px; display: none;"></div>
-            
-            <div class="cards-grid" id="carsGrid">
-                <!-- Картки з'являться тут -->
-            </div>
+            <div class="cards-grid" id="carsGrid"></div>
         </div>
     </main>
 
-    <!-- Підключення скрипта з відстеженням помилок -->
-    <script>
-        function showScriptError() {
-            document.getElementById('resultsCount').style.display = 'none';
-            const errorDiv = document.getElementById('scriptErrorMsg');
-            errorDiv.style.display = 'block';
-            errorDiv.innerHTML = "❌ КРИТИЧНА ПОМИЛКА: Файл 'script.js' не знайдено або він має іншу назву!<br>Перевірте, чи лежить файл script.js в тій самій папці, і чи немає у нього прихованого розширення (наприклад script.js.txt).";
-        }
-    </script>
-    <script src="script.js" onerror="showScriptError()"></script>
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>© 2026 TokyoDrive Importers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

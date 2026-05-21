@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".burger-checkbox");e&&window.addEventListener("resize",function(){e.checked&&(e.checked=!1)})});

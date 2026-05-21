@@ -4,7 +4,8 @@ const carsData = [
     { id: 3, title: "2021 Compact SUV", type: "suv", price: 18900, miles: "18k", img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=400&q=80" },
     { id: 4, title: "2018 City Runner", type: "hatchback", price: 10800, miles: "55k", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=400&q=80" },
     { id: 5, title: "2022 Premium Sedan", type: "sedan", price: 21500, miles: "12k", img: "https://images.unsplash.com/photo-1617469367425-636605dd094f?auto=format&fit=crop&w=400&q=80" },
-    { id: 6, title: "2020 Rugged SUV", type: "suv", price: 16500, miles: "38k", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80" }
+    { id: 6, title: "2020 Rugged SUV", type: "suv", price: 16500, miles: "38k", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80" },
+    { id: 4, title: "1998 Toyota Supra A80", type: "coupe", era: "90s", price: 85000, hp: "320 HP", img: "/Курсова/img/supra.jpg" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

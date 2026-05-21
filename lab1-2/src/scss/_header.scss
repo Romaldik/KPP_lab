@@ -1,0 +1,266 @@
+@use 'variables' as *;
+@use 'root' as *;
+
+
+
+.nav_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $gray;
+  position: relative;
+  height: var(--naw-menu-height);
+
+  p {
+    font-size: var(--naw-menu-size);
+    padding-left: var(--naw-menu-padding);
+    color: $white;
+  }
+  img{
+    display: none;
+  }
+  @include respond-to('laptop'){
+    P{
+      display: none;
+    }
+  }
+}
+
+
+// кнопка (phone, tablet)
+.background-burger{
+  height: var(--burg-height);
+  width: var(--burg-width);
+  background-color: #202529;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.burger-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 10;
+  transform: scale(var(--burg-scale));
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: $white;
+    transition: all 0.3s ease;
+  }
+}
+// Стилі меню (phone, tablet)
+.menu-items {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0px;
+  top: var(--burg-top);
+  z-index: -10;
+  background-color: $white;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease;
+
+li {
+    width: var(--burg-li-width);
+    border-bottom: 1px solid #f1f1f1; 
+    background-color: $white;
+
+    a {
+      display: flex; 
+      align-items: center; 
+      width: 100%; 
+      height: var(--butg-li-height); 
+      padding-left: 20px; 
+      box-sizing: border-box; 
+      text-decoration: none;
+      color: $gray;
+      font-size: var(--burg-li-size);
+      transition: color 0.3s;
+    }
+  }
+
+  li:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+// Логіка відкриття бургер-меню (phone, tabet)
+.burger-checkbox:checked {
+  & ~ .menu-items {
+    z-index: 10;
+  }
+  & ~ .background-burger .burger-btn {
+    .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+
+
+
+
+
+
+// Приховуємо системний чекбокс
+.burger-checkbox {
+  display: none;
+}
+
+
+//laptop, computer версія
+
+@media (min-width: map-get($breakpoints, 'laptop')) {
+    
+  .nav_menu{
+    img{
+      display: block;
+      padding-right: 29px;
+    }
+  }
+  .burger-btn  {
+    display: none;
+  }
+  .background-burger{
+    display: none;
+    background-color: none;
+  }
+
+  // Повертаємо меню нормальний горизонтальний вигляд
+  .menu-items {
+    position: static; 
+    flex-direction: row;
+    background-color: transparent; 
+    z-index: auto; 
+    display: flex;
+    padding-left: var(--naw-menu-padding); 
+    div{
+      display: flex;
+      column-gap: 20px; //
+      li {
+        width: auto; 
+        height: auto;
+        border-bottom: none; 
+        background-color: transparent;
+        text-transform: uppercase;
+        a {
+          color: #ebebeb; 
+          font-size: 15px;
+          padding-left: 0px; 
+        }
+      }
+      li:hover {
+        background-color: transparent;
+      }
+    }
+    img{
+      display: flex;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.header-background{
+    div{
+        padding: var(--header-padding-top) var(--naw-menu-padding) 0px;
+        line-height: 1.3;
+        vertical-align: top;
+        p{
+            font-size: var(--header-size1);
+            color: $white;
+        }
+        .adress{
+            font-size: var(--header-size2);
+            color: $cyan;
+            padding-top: var(--adress-padding-top);
+        }
+    }
+    background-image: url(../img/header-backgr.svg);
+    background-size: cover;
+    width: 100%;
+    min-height: var(--header-height);
+}
+
+.header-background-two{
+    display: flex;
+    padding-top: var(--header-two-padding-top);
+    padding-bottom: var(--header-two-padding-bottom);
+    flex-direction: column;
+    row-gap: var(--header-gap);
+
+      @include respond-to('laptop'){
+      flex-direction: row;
+      justify-content: center;
+      img{
+        display: none;
+      }
+      }
+    div{
+        display: flex;
+        justify-content: space-between;    
+        height: var(--header-two-height);
+        .card1{
+            @extend %card_background;
+            background-image: url(../img/pizza_delivery.svg);
+            background-position-y: bottom var(--card1-backgtound-pos-y); 
+            background-position-x: var(--card1-background-pos-x);
+            background-size: var(--card1-background-size);
+            height: var(--header-two-height);
+            p{
+                font-size: var(--card-size);
+                color: $white;
+            }
+        }
+        .card2{
+            @extend %card_background;
+            background-image: url(../img/UXSalads.svg);
+            background-position-y: bottom var(--card2-background-pos-y);
+            height: var(--header-two-height);
+            p{
+                font-size: var(--card-size);
+                color: $white;
+            }
+        }
+        .card3{
+            @extend %card_background;
+            background-image: url(../img/desserts.svg);
+            background-position-y: top var(--card3-background-pos-y);
+            height: var(--header-two-height);
+            p{
+                font-size: var(--card-size);
+                color: $white;
+            } 
+        }
+        @include respond-to('laptop'){
+          .card1, .card2, .card3{ 
+            height: var(--card-size-laptop);
+            width: var(--card-size-laptop);
+            background-position-y: bottom;
+           }
+        }
+    }
+}
+
+
+

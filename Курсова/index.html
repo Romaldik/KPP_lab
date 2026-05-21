@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDrive - Головна</title>
+    <title>TokyoDrive - Japanese Legends</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- НАВІГАТОР -->
     <header>
         <div class="container navbar">
-            <a href="index.html" class="logo">🚘 STUDrive</a>
+            <a href="index.html" class="logo">東京 <span>TokyoDrive</span></a>
             <nav class="nav-links">
-                <a href="index.html" style="color: #007bff; font-weight: bold;">Home</a>
-                <a href="catalog.html">Catalog</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" style="color: #BC002D; font-weight: bold;">Головна</a>
+                <a href="catalog.html">Каталог JDM</a>
+                <a href="contact.html">Контакти</a>
             </nav>
             <div class="auth-actions">
-                <span id="userGreeting" class="user-greeting">Привіт, Користувач!</span>
+                <span id="userGreeting" class="user-greeting"></span>
                 <button id="navLoginBtn" class="btn btn-outline" onclick="openModal('loginModal')">Увійти</button>
                 <button id="navRegisterBtn" class="btn btn-primary" onclick="openModal('registerModal')">Реєстрація</button>
                 <button id="navLogoutBtn" class="btn btn-outline" style="display:none;" onclick="logoutUser()">Вийти</button>
@@ -26,31 +25,24 @@
         </div>
     </header>
 
-    <!-- МОДАЛЬНІ ВІКНА (Вхід та Реєстрація) -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal">
             <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
             <h2>Авторизація</h2>
             <div id="loginAlert" class="alert"></div>
             <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Email адреса</label>
-                    <input type="email" id="loginEmail" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Пароль</label>
-                    <input type="password" id="loginPassword" class="form-control" required>
-                </div>
+                <div class="form-group"><label>Email</label><input type="email" id="loginEmail" class="form-control" required></div>
+                <div class="form-group"><label>Пароль</label><input type="password" id="loginPassword" class="form-control" required></div>
                 <button type="submit" class="btn btn-primary btn-block">Увійти</button>
             </form>
-            <div class="switch-form">Немає акаунту? <a onclick="switchModals('loginModal', 'registerModal')">Створити</a></div>
+            <div class="switch-form">Немає доступу? <a onclick="switchModals('loginModal', 'registerModal')">Отримати</a></div>
         </div>
     </div>
     
     <div id="registerModal" class="modal-overlay">
         <div class="modal">
             <span class="close-modal" onclick="closeModal('registerModal')">&times;</span>
-            <h2>Реєстрація</h2>
+            <h2>Новий Клієнт</h2>
             <div id="registerAlert" class="alert"></div>
             <form id="registerForm" onsubmit="handleRegister(event)">
                 <div class="form-group"><label>Ім'я</label><input type="text" id="regName" class="form-control" required></div>
@@ -58,78 +50,75 @@
                 <div class="form-group"><label>Пароль</label><input type="password" id="regPassword" class="form-control" required minlength="6"></div>
                 <button type="submit" class="btn btn-primary btn-block">Зареєструватися</button>
             </form>
-            <div class="switch-form">Вже є акаунт? <a onclick="switchModals('registerModal', 'loginModal')">Увійти</a></div>
+            <div class="switch-form">Вже з нами? <a onclick="switchModals('registerModal', 'loginModal')">Увійти</a></div>
         </div>
     </div>
 
     <main>
-        <!-- СЕКЦІЯ: ГЕРОЙ -->
         <section id="home" class="container">
             <div class="hero">
                 <div class="hero-content">
-                    <div class="hero-tag">NEW INVENTORY JUST ARRIVED</div>
-                    <h1>Find Your<br>Perfect <span>First Ride</span></h1>
-                    <p>Affordable, reliable cars tailored specifically for student life. Transparent pricing, full history reports, and financing options for limited credit.</p>
+                    <div class="hero-tag">ПРЯМИЙ ЕКСПОРТ З ЯПОНІЇ 🎌</div>
+                    <h1>Легенди <br><span>JDM Культури</span></h1>
+                    <p>Автентичні японські спорткари, доставлені прямо з Токіо. Ми знаходимо, перевіряємо та доставляємо мрію.</p>
                     <div class="hero-buttons">
-                        <a href="catalog.html" class="btn btn-primary">View Catalog</a>
-                        <button class="btn btn-outline" onclick="openModal('registerModal')">Sign Up Now</button>
+                        <a href="catalog.html" class="btn btn-primary">Дивитись Каталог</a>
+                        <button class="btn btn-outline" onclick="openModal('registerModal')">Приєднатися</button>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80" alt="White Car">
+                    <img src="https://images.unsplash.com/photo-1533558701576-23c65e0272fb?auto=format&fit=crop&w=800&q=80" alt="Tokyo Night Car">
                 </div>
             </div>
         </section>
 
-        <!-- СЕКЦІЯ: ПОПУЛЯРНЕ (Замість контактів) -->
         <section class="container" style="padding-bottom: 60px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px;">
                 <div>
-                    <h2>Featured Selection</h2>
-                    <p style="color: #666;">Hand-picked vehicles perfect for commuting to campus</p>
+                    <h2>Популярні Легенди</h2>
+                    <p style="color: #aaa;">Найбажаніші екземпляри цього місяця</p>
                 </div>
-                <a href="catalog.html" style="color: #007bff; font-weight: bold;">See all inventory →</a>
+                <a href="catalog.html" style="color: #BC002D; font-weight: bold; text-transform: uppercase;">Весь гараж →</a>
             </div>
             <div class="cards-grid">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=400&q=80" style="width:100%; height:180px; object-fit:cover;">
+                    <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=400&q=80" style="width:100%; height:180px; object-fit:cover; border-bottom: 2px solid #BC002D;">
                     <div style="padding: 15px;">
-                        <h3 style="font-size: 18px; margin-bottom: 5px;">2020 Eco Hatchback</h3>
-                        <p style="font-size: 12px; color: #777; margin-bottom: 15px;">25k miles • Automatic • Gas</p>
-                        <div style="font-size: 20px; font-weight: bold; color: #007bff;">$12,500</div>
+                        <h3 style="font-size: 18px; margin-bottom: 5px; color: #fff;">1999 Nissan Skyline GT-R R34</h3>
+                        <p style="font-size: 12px; color: #aaa; margin-bottom: 15px;">280 HP • Manual • 4WD</p>
+                        <div style="font-size: 20px; font-weight: bold; color: #BC002D;">$145,000</div>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=400&q=80" style="width:100%; height:180px; object-fit:cover;">
+                    <img src="/Курсова/img/supra.jpg" style="width:100%; height:180px; object-fit:cover; border-bottom: 2px solid #BC002D;">
                     <div style="padding: 15px;">
-                        <h3 style="font-size: 18px; margin-bottom: 5px;">2019 Reliable Sedan</h3>
-                        <p style="font-size: 12px; color: #777; margin-bottom: 15px;">42k miles • Hybrid</p>
-                        <div style="font-size: 20px; font-weight: bold; color: #007bff;">$14,200</div>
+                        <h3 style="font-size: 18px; margin-bottom: 5px; color: #fff;">1998 Toyota Supra A80</h3>
+                        <p style="font-size: 12px; color: #aaa; margin-bottom: 15px;">320 HP • Manual • RWD</p>
+                        <div style="font-size: 20px; font-weight: bold; color: #BC002D;">$85,000</div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ФУТЕР -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 style="margin-bottom: 15px; color: white;">🚘 STUDrive</h3>
-                    <p style="color: #aaa; font-size: 14px;">The #1 car dealership specialized in student-friendly vehicles.</p>
+                    <h3 style="margin-bottom: 15px; color: white;">東京 TokyoDrive</h3>
+                    <p style="color: #666; font-size: 14px;">Офіційний імпортер JDM автомобілів. Працюємо безпосередньо з аукціонами в Японії.</p>
                 </div>
                 <div>
-                    <h4 style="margin-bottom: 15px;">Quick Links</h4>
+                    <h4 style="margin-bottom: 15px;">Навігація</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="catalog.html">Inventory</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 STUDrive Inc. All rights reserved.</p>
+                <p>© 2026 TokyoDrive Importers. All rights reserved.</p>
             </div>
         </div>
     </footer>

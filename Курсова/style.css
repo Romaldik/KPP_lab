@@ -1,482 +1,507 @@
-/* =========================================
-   БАЗОВІ СТИЛІ ТА СКИДАННЯ (RESET)
-========================================= */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+:root {
+    --theme-primary: #BC002D;
+    --theme-primary-hover: #8a0021;
+    --theme-bg-main: #0a0a0a;
+    --theme-bg-surface: #111111;
+    --theme-bg-elevated: #1a1a1a;
+    --theme-bg-card: #222222;
+    --theme-text-light: #ffffff;
+    --theme-text-main: #e0e0e0;
+    --theme-text-muted: #aaaaaa;
+    --theme-border: #333333;
+    --theme-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --theme-transition: 0.3s ease;
 }
 
-body { 
-    background-color: #f8f9fa; 
-    color: #333; 
-    line-height: 1.6; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-a { 
-    text-decoration: none; 
-    color: inherit; 
+body {
+    background-color: var(--theme-bg-main);
+    color: var(--theme-text-main);
+    font-family: var(--theme-font);
+    line-height: 1.6;
 }
 
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-section { 
-    padding: 60px 0; 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* =========================================
-   КНОПКИ
-========================================= */
-.btn { 
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    border: none; 
-    transition: 0.3s; 
-    font-size: 14px; 
-    text-align: center; 
+main section {
+    padding: 60px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: var(--theme-transition);
+    font-size: 14px;
+    text-align: center;
     display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.btn-primary { 
-    background-color: #007bff; 
-    color: white; 
+.btn-primary {
+    background-color: var(--theme-primary);
+    color: var(--theme-text-light);
 }
 
-.btn-primary:hover { 
-    background-color: #0056b3; 
+.btn-primary:hover {
+    background-color: var(--theme-primary-hover);
+    box-shadow: 0 0 10px rgba(188, 0, 45, 0.5);
 }
 
-.btn-outline { 
-    background-color: transparent; 
-    border: 2px solid #ddd; 
-    color: #333; 
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--theme-primary);
+    color: var(--theme-primary);
 }
 
-.btn-outline:hover { 
-    border-color: #007bff; 
-    color: #007bff; 
+.btn-outline:hover {
+    background-color: var(--theme-primary);
+    color: var(--theme-text-light);
 }
 
-.btn-block { 
-    width: 100%; 
-    display: block; 
-    margin-top: 10px; 
+.btn-block {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
 }
 
-/* =========================================
-   НАВІГАЦІЯ (ШАПКА САЙТУ)
-========================================= */
-header { 
-    background-color: white; 
-    padding: 15px 0; 
-    border-bottom: 1px solid #eaeaea; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
+header {
+    background-color: var(--theme-bg-surface);
+    padding: 15px 0;
+    border-bottom: 2px solid var(--theme-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.navbar { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo { 
-    font-size: 24px; 
-    font-weight: bold; 
-    color: #007bff; 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-    cursor: pointer; 
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--theme-text-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    letter-spacing: 2px;
 }
 
-.nav-links { 
-    display: flex; 
-    gap: 20px; 
+.logo span {
+    color: var(--theme-primary);
 }
 
-.nav-links a { 
-    font-size: 14px; 
-    font-weight: 500; 
-    color: #555; 
-    transition: 0.2s; 
+.nav-links {
+    display: flex;
+    gap: 20px;
 }
 
-.nav-links a:hover { 
-    color: #007bff; 
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-text-muted);
+    transition: 0.2s;
+    text-transform: uppercase;
 }
 
-.auth-actions { 
-    display: flex; 
-    gap: 10px; 
-    align-items: center; 
+.nav-links a:hover {
+    color: var(--theme-primary);
 }
 
-.user-greeting { 
-    font-weight: bold; 
-    color: #007bff; 
-    display: none; 
-    margin-right: 15px; 
+.auth-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-/* =========================================
-   МОДАЛЬНІ ВІКНА (ФОРМИ ВХОДУ ТА РЕЄСТРАЦІЇ)
-========================================= */
-.modal-overlay { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0,0,0,0.6); 
-    display: none; 
-    justify-content: center; 
-    align-items: center; 
-    z-index: 1000; 
+.user-greeting {
+    font-weight: bold;
+    color: var(--theme-primary);
+    display: none;
+    margin-right: 15px;
 }
 
-.modal { 
-    background: white; 
-    padding: 30px; 
-    border-radius: 10px; 
-    width: 100%; 
-    max-width: 400px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    position: relative; 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.close-modal { 
-    position: absolute; 
-    top: 15px; 
-    right: 20px; 
-    font-size: 24px; 
-    cursor: pointer; 
-    color: #888; 
+.modal {
+    background: var(--theme-bg-elevated);
+    padding: 30px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(188, 0, 45, 0.2);
+    position: relative;
+    border: 1px solid var(--theme-border);
 }
 
-.close-modal:hover { 
-    color: #333; 
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
 }
 
-.modal h2 { 
-    margin-bottom: 20px; 
-    text-align: center; 
-    color: #333; 
+.close-modal:hover {
+    color: var(--theme-primary);
 }
 
-.form-group { 
-    margin-bottom: 15px; 
+.modal h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--theme-text-light);
+    text-transform: uppercase;
 }
 
-.form-group label { 
-    display: block; 
-    font-size: 12px; 
-    margin-bottom: 5px; 
-    color: #666; 
-    font-weight: bold; 
+.form-group {
+    margin-bottom: 15px;
 }
 
-.form-control { 
-    width: 100%; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    font-size: 14px; 
+.form-group label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: var(--theme-text-muted);
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.form-control:focus { 
-    outline: none; 
-    border-color: #007bff; 
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--theme-border);
+    border-radius: 3px;
+    font-size: 14px;
+    background: var(--theme-bg-card);
+    color: var(--theme-text-light);
 }
 
-.switch-form { 
-    text-align: center; 
-    margin-top: 15px; 
-    font-size: 13px; 
-    color: #666; 
+.form-control:focus {
+    outline: none;
+    border-color: var(--theme-primary);
 }
 
-.switch-form a { 
-    color: #007bff; 
-    cursor: pointer; 
-    font-weight: bold; 
+.switch-form {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #888;
 }
 
-/* =========================================
-   ГОЛОВНИЙ ЕКРАН (HERO SECTION)
-========================================= */
-.hero { 
-    display: flex; 
-    align-items: center; 
-    gap: 40px; 
-    background: white; 
-    border-radius: 0 0 20px 20px; 
+.switch-form a {
+    color: var(--theme-primary);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--theme-bg-surface);
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 20px;
+    padding: 40px;
+    border: 1px solid var(--theme-bg-card);
+    border-top: none;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-tag {
+    background: rgba(188, 0, 45, 0.1);
+    color: var(--theme-primary);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid var(--theme-primary);
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--theme-text-light);
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: var(--theme-primary);
+}
+
+.hero p {
+    color: var(--theme-text-muted);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-image {
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--theme-border);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contact-section {
+    background: var(--theme-bg-surface);
+    border-radius: 5px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    border: 1px solid var(--theme-border);
+}
+
+.contact-form-area {
+    flex: 1;
+}
+
+.contact-info-area {
+    flex: 1;
+    background: var(--theme-bg-elevated);
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--theme-bg-card);
+}
+
+.info-card {
+    background: var(--theme-bg-card);
+    padding: 15px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--theme-primary);
+}
+
+.info-card h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--theme-text-light);
+    text-transform: uppercase;
+}
+
+.info-card p {
+    font-size: 13px;
+    color: var(--theme-text-muted);
+}
+
+.catalog-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.sidebar {
+    width: 250px;
+    background: var(--theme-bg-surface);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--theme-border);
+    height: fit-content;
+}
+
+.filter-group {
     margin-bottom: 20px;
 }
 
-.hero-content { 
-    flex: 1; 
+.filter-group h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--theme-text-light);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--theme-border);
+    padding-bottom: 5px;
 }
 
-.hero-tag { 
-    background: #e6f2ff; 
-    color: #007bff; 
-    padding: 5px 10px; 
-    border-radius: 20px; 
-    font-size: 12px; 
-    font-weight: bold; 
-    display: inline-block; 
-    margin-bottom: 15px; 
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--theme-text-muted);
+    cursor: pointer;
 }
 
-.hero h1 { 
-    font-size: 48px; 
-    line-height: 1.2; 
-    margin-bottom: 20px; 
+.filter-group input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--theme-primary);
 }
 
-.hero h1 span { 
-    color: #007bff; 
+.catalog-content {
+    flex: 1;
 }
 
-.hero p { 
-    color: #666; 
-    margin-bottom: 30px; 
-    font-size: 16px; 
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.hero-buttons { 
-    display: flex; 
-    gap: 15px; 
+.catalog-header h2 {
+    color: var(--theme-text-light);
+    text-transform: uppercase;
 }
 
-.hero-image { 
-    flex: 1; 
-    border-radius: 15px; 
-    overflow: hidden; 
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.hero-image img { 
-    width: 100%; 
-    height: auto; 
-    display: block; 
+.card {
+    background: var(--theme-bg-surface);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--theme-border);
+    transition: var(--theme-transition);
 }
 
-/* =========================================
-   СТОРІНКА КОНТАКТІВ
-========================================= */
-.contact-section { 
-    background: white; 
-    border-radius: 15px; 
-    padding: 40px; 
-    display: flex; 
-    gap: 40px; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--theme-primary);
+    box-shadow: 0 10px 15px rgba(188, 0, 45, 0.1);
 }
 
-.contact-form-area { 
-    flex: 1; 
+.alert {
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    display: none;
+    text-align: center;
+    font-weight: bold;
 }
 
-.contact-info-area { 
-    flex: 1; 
-    background: #f8f9fa; 
-    padding: 30px; 
-    border-radius: 10px; 
+.alert-error {
+    background: #4a0000;
+    color: #ff6b6b;
+    border: 1px solid #800000;
 }
 
-.info-card { 
-    background: white; 
-    padding: 15px; 
-    border-radius: 8px; 
-    margin-bottom: 15px; 
-    border: 1px solid #eaeaea; 
+.alert-success {
+    background: #003311;
+    color: #4dff88;
+    border: 1px solid #006622;
 }
 
-.info-card h4 { 
-    font-size: 14px; 
-    margin-bottom: 5px; 
-    color: #007bff; 
-}
-
-.info-card p { 
-    font-size: 13px; 
-    color: #555; 
-}
-
-/* =========================================
-   СТОРІНКА КАТАЛОГУ
-========================================= */
-.catalog-container { 
-    display: flex; 
-    gap: 30px; 
-    margin-top: 40px; 
-    margin-bottom: 60px; 
-}
-
-.sidebar { 
-    width: 250px; 
-    background: white; 
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-    height: fit-content; 
-}
-
-.filter-group { 
-    margin-bottom: 20px; 
-}
-
-.filter-group h4 { 
-    margin-bottom: 10px; 
-    font-size: 14px; 
-    color: #333; 
-}
-
-.filter-group label { 
-    display: block; 
-    margin-bottom: 8px; 
-    font-size: 14px; 
-    color: #555; 
-    cursor: pointer; 
-}
-
-.filter-group input[type="checkbox"] { 
-    margin-right: 8px; 
-}
-
-.catalog-content { 
-    flex: 1; 
-}
-
-.catalog-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 20px; 
-}
-
-.cards-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 20px; 
-}
-
-.card { 
-    background: white; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-    transition: 0.3s; 
-}
-
-.card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1); 
-}
-
-/* =========================================
-   СИСТЕМНІ ПОВІДОМЛЕННЯ (АЛЕРТИ)
-========================================= */
-.alert { 
-    padding: 10px; 
-    border-radius: 5px; 
-    margin-bottom: 15px; 
-    font-size: 13px; 
-    display: none; 
-    text-align: center; 
-}
-
-.alert-error { 
-    background: #f8d7da; 
-    color: #721c24; 
-    border: 1px solid #f5c6cb; 
-}
-
-.alert-success { 
-    background: #d4edda; 
-    color: #155724; 
-    border: 1px solid #c3e6cb; 
-}
-
-/* =========================================
-   ПІДВАЛ САЙТУ (FOOTER)
-========================================= */
-footer { 
-    background-color: #1a1a1a; 
-    color: #fff; 
-    padding: 60px 0 20px; 
+footer {
+    background-color: #050505;
+    color: var(--theme-text-light);
+    padding: 60px 0 20px;
     margin-top: 40px;
+    border-top: 1px solid var(--theme-bg-card);
 }
 
-.footer-grid { 
-    display: grid; 
-    grid-template-columns: 2fr 1fr 1fr 2fr; 
-    gap: 40px; 
-    margin-bottom: 40px; 
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
-.footer-links { 
-    list-style: none; 
+.footer-links {
+    list-style: none;
 }
 
-.footer-links li { 
-    margin-bottom: 10px; 
+.footer-links li {
+    margin-bottom: 10px;
 }
 
-.footer-links a { 
-    color: #aaa; 
-    font-size: 14px; 
+.footer-links a {
+    color: #666;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-.footer-bottom { 
-    border-top: 1px solid #333; 
-    padding-top: 20px; 
-    text-align: center; 
-    color: #aaa; 
-    font-size: 12px; 
+.footer-links a:hover {
+    color: var(--theme-primary);
 }
 
-/* =========================================
-   АДАПТИВНІСТЬ (ДЛЯ ПЛАНШЕТІВ ТА МОБІЛОК)
-========================================= */
+.footer-bottom {
+    border-top: 1px solid var(--theme-bg-card);
+    padding-top: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
 @media (max-width: 768px) {
-    .hero { 
-        flex-direction: column; 
-        text-align: center; 
+    .hero {
+        flex-direction: column;
+        text-align: center;
     }
-    
-    .hero-buttons { 
-        justify-content: center; 
+
+    .hero-buttons {
+        justify-content: center;
     }
-    
-    .contact-section { 
-        flex-direction: column; 
+
+    .contact-section {
+        flex-direction: column;
     }
-    
-    .footer-grid { 
-        grid-template-columns: 1fr; 
-        gap: 30px; 
-        text-align: center; 
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
     }
-    
-    .nav-links { 
-        display: none; /* Ховаємо навігацію на мобільних */
-    } 
-    
-    .catalog-container { 
-        flex-direction: column; 
+
+    .nav-links {
+        display: none;
     }
-    
-    .sidebar { 
-        width: 100%; 
+
+    .catalog-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
     }
 }

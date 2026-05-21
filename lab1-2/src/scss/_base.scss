@@ -1,0 +1,9 @@
+@use 'variables' as *;
+@use 'font-face';
+body{
+    font-family: "lato"!important;
+    p{
+        font-size: 30px;
+        color: $black-text;
+    }
+}
